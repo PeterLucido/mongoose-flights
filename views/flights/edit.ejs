@@ -25,9 +25,9 @@
       <option value="SAN">SAN</option>
     </select>
     <label for="flightNo-input">Flight #:</label>
-    <input type="text" name="flightNo" id="flightNo-input">
+    <input type="text" name="flightNo" id="flightNo-input" value="<%= flight.flightNo %>">
     <label for="date-imput">Date:</label>
-    <input type="text" name="date" id="date-input">
+    <input type="datetime-local" name="date" id="date-input" value="<%= flight.departs.toISOString().slice(0, 16) %>">
     <button type="submit">Save Flight</button>
   </form>
 </main>
