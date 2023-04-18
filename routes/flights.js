@@ -12,6 +12,8 @@ router.get('/:flightId', flightsController.show)
 router.get('/:flightId/edit', flightsController.edit)
 // GET localhost:3000/flights
 router.post('/', flightsController.create)
+// GET localhost:3000/flights/:flightId/tickets
+router.post('/:flightId/tickets', flightsController.createTickets)
 // GET localhost:3000/flights/:flightId
 router.delete('/:flightId', flightsController.delete)
 // GET localhost:3000/flights/:flightId

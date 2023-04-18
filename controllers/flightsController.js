@@ -71,8 +71,6 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  console.log('Flight ID:', req.params.flightId);
-  console.log('Update data:', req.body);
   Flight.findByIdAndUpdate(req.params.flightId, req.body, {new: true})
   .then(flight => {
     res.redirect(`/flights/${flight._id}`)
@@ -82,13 +80,26 @@ function update(req, res) {
     res.redirect('/flights')
   })
 }
-// req.body.nowFlying = !!req.body.nowFlying
-// if (req.body.cast) {
-//   req.body.cast = req.body.cast.split(', ')
-// }
-// for (let key in req.body) {
-//   if (req.body[key] === '') delete req.body[key]
-// }
+
+function createTickets(req, res) {
+  console.log(req.body)
+  Flight.findById(req.params.flightId)
+  .then(flight => {
+    flight.tickets.push(req.body)
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 export {
   newFlight as new,
@@ -98,4 +109,5 @@ export {
   deleteFlight as delete,
   edit,
   update,
+  createTickets,
 }
