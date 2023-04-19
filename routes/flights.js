@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as flightsController from '../controllers/flightsController.js'
+import * as flightsController from '../controllers/flights.js'
 
 const router = Router()
 // GET localhost:3000/flights
@@ -14,6 +14,7 @@ router.get('/:flightId/edit', flightsController.edit)
 router.post('/', flightsController.create)
 // GET localhost:3000/flights/:flightId/tickets
 router.post('/:flightId/tickets', flightsController.createTickets)
+router.post('/:flightId/meals', flightsController.addToMenu)
 // GET localhost:3000/flights/:flightId
 router.delete('/:flightId', flightsController.delete)
 // GET localhost:3000/flights/:flightId
