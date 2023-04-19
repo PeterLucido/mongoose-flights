@@ -41,10 +41,10 @@
     action="/flights/<%= flight._id %>/tickets"
     method="POST"
   >
-    <label for="content-textarea">Seat:</label>
+    <label for="seat-input">Seat:</label>
     <input name="seat" required pattern="[A-F][1-9]\d?">
-    <label for="content-textarea">Price:</label>
-    <textarea name="price" id="content-textarea"></textarea>
+    <label for="price-input">Price:</label>
+    <input name="price" id="price-input"></input>
   
     <button type="submit">Add Ticket</button>
   </form>

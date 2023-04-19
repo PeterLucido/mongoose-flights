@@ -15,7 +15,8 @@ const ticketSchema = new Schema({
 const flightSchema = new Schema({
   airline: {
     type: String, 
-    enum: ["American", "Southwest", "United"]
+    enum: ["American", "Southwest", "United"],
+    default: "Southwest"
   },
   airport: {
     type: String, 
